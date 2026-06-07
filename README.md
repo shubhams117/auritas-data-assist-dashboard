@@ -66,10 +66,10 @@ No backend service was used for this implementation. All calculations are perfor
 
 ## Application Screenshots
 
-### Dashboard Overview
+### Dashboard Overview snap
 
-![Dashboard](App Screenshots/dashboard-overview.png)
+App Screenshots/dashboard-overview.png
 
-### Job Monitoring
+### Job Monitoring Table snap
 
-![Jobs](docs/jobs-table.png)
+App Screenshots/jobs-table.png
