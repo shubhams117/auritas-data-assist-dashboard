@@ -63,3 +63,13 @@ No backend service was used for this implementation. All calculations are perfor
 - The provided jobs.json file is used to display and manipulate data on dashboard.
 - Scheduling conflicts are determined based on overlapping execution windows for the same archiving object.
 - ROI is represented using the estimated monthly storage savings provided in the dataset.
+
+## Application Screenshots
+
+### Dashboard Overview
+
+![Dashboard](App Screenshots/dashboard-overview.png)
+
+### Job Monitoring
+
+![Jobs](docs/jobs-table.png)
