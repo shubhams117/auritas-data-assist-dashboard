@@ -1,0 +1,19 @@
+{
+  "generator-ui5-app": {
+    "namespace": "com.auritas.dataassist",
+    "framework": "SAPUI5",
+    "frameworkVersion": "1.120.0",
+    "author": "Shubham Kumar",
+    "initrepo": false,
+    "appId": "com.auritas.dataassist",
+    "appURI": "com/auritas/dataassist",
+    "cdnDomain": "ui5.sap.com",
+    "defaultTheme": "sap_horizon",
+    "qunitCoverageFile": "qunit-coverage-istanbul.js",
+    "gte1_98_0": true,
+    "gte1_104_0": true,
+    "gte1_120_0": true,
+    "lt1_124_0": true,
+    "setupCompleted": true
+  }
+}

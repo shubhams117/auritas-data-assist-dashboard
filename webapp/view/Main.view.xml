@@ -1,0 +1,206 @@
+<mvc:View
+    controllerName="com.auritas.dataassist.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+
+    <Page title="Auritas Data ASSIST - Archiving Job Scheduler">
+
+        <content>
+
+            <VBox class="sapUiMediumMargin">
+
+                <Title
+                    text="Archiving Job Scheduler"
+                    level="H1" />
+
+                <Text
+                    text="Monitor archiving jobs, dependencies, conflicts and storage savings." />
+
+                <Toolbar class="sapUiMediumMarginTop">
+                    <Title text="Overview" />
+                </Toolbar>
+
+                <HBox wrap="Wrap">
+
+                    <GenericTile
+                        header="Total Jobs"
+                        class="sapUiTinyMargin">
+                        <TileContent>
+                            <NumericContent
+                                value="{dashboard>/totalJobs}" />
+                        </TileContent>
+                    </GenericTile>
+
+                    <GenericTile
+                        header="Failed Jobs"
+                        class="sapUiTinyMargin">
+                        <TileContent>
+                            <NumericContent
+                                value="{dashboard>/failedJobs}" />
+                        </TileContent>
+                    </GenericTile>
+
+                    <GenericTile
+                        header="Blocked Jobs"
+                        class="sapUiTinyMargin">
+                        <TileContent>
+                            <NumericContent
+                                value="{dashboard>/blockedJobs}" />
+                        </TileContent>
+                    </GenericTile>
+
+                    <GenericTile
+                        header="Conflicts"
+                        class="sapUiTinyMargin">
+                        <TileContent>
+                            <NumericContent
+                                value="{dashboard>/conflicts}" />
+                        </TileContent>
+                    </GenericTile>
+
+                    <GenericTile
+                        header="Space Reclaimed (GB)"
+                        class="sapUiTinyMargin">
+                        <TileContent>
+                            <NumericContent
+                                value="{dashboard>/reclaimedSpace}" />
+                        </TileContent>
+                    </GenericTile>
+
+                    <GenericTile
+                        header="Estimated Monthly Savings (USD)"
+                        class="sapUiTinyMargin">
+                        <TileContent>
+                            <NumericContent
+                                value="{dashboard>/monthlySavings}" />
+                        </TileContent>
+                    </GenericTile>
+
+                </HBox>
+
+                <Toolbar class="sapUiMediumMarginTop">
+                    <Title text="Attention Required" />
+                </Toolbar>
+
+                <Panel
+                    headerText="Failed Jobs"
+                    class="sapUiSmallMarginTop">
+
+                    <List items="{jobs>/failedJobs}">
+                        <StandardListItem
+                            title="{jobs>name}"
+                            description="{jobs>error}" />
+                    </List>
+
+                </Panel>
+
+                <Panel
+                    headerText="Blocked Jobs"
+                    class="sapUiSmallMarginTop">
+
+                    <List items="{jobs>/blockedJobs}">
+                        <StandardListItem
+                            title="{jobs>name}"
+                            description="{jobs>block_reason}" />
+                    </List>
+
+                </Panel>
+
+                <Panel
+                    headerText="Scheduling Conflicts"
+                    class="sapUiSmallMarginTop">
+
+                    <List items="{jobs>/conflicts}">
+                        <StandardListItem
+                            title="{jobs>job1}"
+                            description="{jobs>job2}" />
+                    </List>
+
+                </Panel>
+
+                <Toolbar class="sapUiMediumMarginTop">
+                    <Title text="All Archiving Jobs" />
+                </Toolbar>
+
+                <SearchField
+                    width="25rem"
+                    placeholder="Search jobs..."
+                    liveChange=".onSearch"
+                    class="sapUiSmallMarginBottom" />
+
+                <Table
+                    id="jobsTable"
+                    items="{jobs>/jobs}">
+
+                    <columns>
+
+                        <Column>
+                            <Text text="Job Name" />
+                        </Column>
+
+                        <Column>
+                            <Text text="System" />
+                        </Column>
+
+                        <Column>
+                            <Text text="Object" />
+                        </Column>
+
+                        <Column>
+                            <Text text="Phase" />
+                        </Column>
+
+                        <Column>
+                            <Text text="Status" />
+                        </Column>
+
+                        <Column>
+                            <Text text="Last Run" />
+                        </Column>
+
+                        <Column>
+                            <Text text="Next Run" />
+                        </Column>
+
+                    </columns>
+
+                    <items>
+
+                        <ColumnListItem>
+
+                            <cells>
+
+                                <Text text="{jobs>name}" />
+
+                                <Text text="{jobs>system}" />
+
+                                <Text text="{jobs>archiving_object}" />
+
+                                <Text text="{jobs>phase}" />
+
+                                <ObjectStatus
+                                    text="{jobs>status}"
+                                    state="{
+                                        path: 'jobs>status',
+                                        formatter: '.formatter.statusState'
+                                    }" />
+
+                                <Text text="{jobs>last_run}" />
+
+                                <Text text="{jobs>next_run}" />
+
+                            </cells>
+
+                        </ColumnListItem>
+
+                    </items>
+
+                </Table>
+
+            </VBox>
+
+        </content>
+
+    </Page>
+
+</mvc:View>
